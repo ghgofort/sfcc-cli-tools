@@ -1,7 +1,7 @@
 ﻿# sfcc-cli-tools :: A CLI tool for SFCC developers
 
 ## Summary
-This is a repository for a .Net Core 2.2 CLI application for working with SalesForce Commerce Cloud builds, data migrations, and other commond developer tasks. 
+This is a repository for a .Net Core 2.2 CLI application for working with SalesForce Commerce Cloud builds, data migrations, and other common developer tasks. 
 
 ## CLI Commands
 There are no features of this CLI that have been completed yet.
