@@ -4,6 +4,9 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <RootNamespace>sfcc_cli_tools</RootNamespace>
+    <PackageVersion>0.0.1</PackageVersion>
+    <Authors>ggoforth</Authors>
+    <Description>CLI tools that are cross platform and can be used to work with SFCC isntances &amp; their data.</Description>
   </PropertyGroup>
 
 </Project>
