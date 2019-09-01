@@ -6,7 +6,7 @@
     <RootNamespace>sfcc_cli_tools</RootNamespace>
     <PackageVersion>0.0.1</PackageVersion>
     <Authors>ggoforth</Authors>
-    <Description>CLI tools that are cross platform and can be used to work with SFCC isntances &amp; their data.</Description>
+    <Description>CLI tools for working with Salesforce Commerce Cloud (SFCC) isntances and SFCC instance data.</Description>
   </PropertyGroup>
 
 </Project>
