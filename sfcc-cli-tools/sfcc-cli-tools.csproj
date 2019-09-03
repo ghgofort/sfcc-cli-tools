@@ -14,4 +14,7 @@
     <Description>CLI tools for working with Salesforce Commerce Cloud (SFCC) isntances and SFCC instance data.</Description>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
+  </ItemGroup>
 </Project>
