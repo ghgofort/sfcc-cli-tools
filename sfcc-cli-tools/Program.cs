@@ -8,6 +8,7 @@ namespace sfcc_cli_tools
         {
             String strArgPrefix = "";
             String strArgValue = "";
+            CommandHandler commandHandler = new CommandHandler();
 
             // Check for CLI arguments passed.
             if (args.Length != 0)
@@ -15,10 +16,13 @@ namespace sfcc_cli_tools
                 // Loop through the command line args.
                 for(int x = 0; x < args.Length; x++)
                 {
-                    // If the arg starts with a hyphen then it is a flag
-                    if (args[x].IndexOf('-') == 0)
+                    // Command arguments will not have a hyphen, modifiers will.
+                    if (args[x].IndexOf('-') == -1)
                     {
-                        // Get the character(s) for the flag:
+
+                    } else { 
+                        // Check if the 2nd char is also a hyphen or if this is
+                        // the short version.
                         if (args[x].Substring(1, 1).IndexOf('-') == 0)
                         {
                             // Get the CLI flag portion of the argument.
