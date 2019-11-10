@@ -1,28 +1,19 @@
 FROM mcr.microsoft.com/dotnet/core/sdk:3.0-alpine AS build
-WORKDIR /app
+WORKDIR ./
 
 # copy csproj and restore as distinct layers
-COPY dotnetapp/*.csproj ./dotnetapp/
-COPY utils/*.csproj ./utils/
-WORKDIR /app/dotnetapp
+COPY sfcc-cli-tools/*.csproj ./sfcc-cli-tools/
+WORKDIR ./sfcc-cli-tools
 RUN dotnet restore
 
 # copy and publish app and libraries
-WORKDIR /app/
-COPY dotnetapp/. ./dotnetapp/
-COPY utils/. ./utils/
-WORKDIR /app/dotnetapp
+WORKDIR ./
+COPY sfcc-cli-tools/. ./sfcc-cli-tools/
+WORKDIR /sfcc-cli-tools
 RUN dotnet publish -c Release -o out
 
 
-# test application -- see: dotnet-docker-unit-testing.md
-FROM build AS testrunner
-WORKDIR /app/tests
-COPY tests/. .
-ENTRYPOINT ["dotnet", "test", "--logger:trx"]
-
-
 FROM mcr.microsoft.com/dotnet/core/runtime:3.0-alpine AS runtime
-WORKDIR /app
-COPY --from=build /app/dotnetapp/out ./
+WORKDIR /sfcc-cli-tools
+COPY --from=build /sfcc-cli-tools/out ./
 ENTRYPOINT ["dotnet", "dotnetapp.dll"]
