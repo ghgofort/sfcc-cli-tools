@@ -6,11 +6,7 @@ namespace sfcc_cli_tools
     {
         static void Main(string[] args)
         {
-            
-            CommandHandler commandHandler = new CommandHandler(args);
-
-            
-            
+            CommandHandler commandHandler = new CommandHandler(args);          
         }
     }
 }

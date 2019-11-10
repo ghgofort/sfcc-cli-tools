@@ -9,6 +9,11 @@ namespace sfcc_cli_tools.commands
         {
         }
 
+        public char[] getAllowedModifiers()
+        {
+            throw new NotImplementedException();
+        }
+
         public string getCommandName()
         {
             return Sync.commandName;

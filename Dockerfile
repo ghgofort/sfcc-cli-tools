@@ -1,19 +1,18 @@
 FROM mcr.microsoft.com/dotnet/core/sdk:3.0-alpine AS build
-WORKDIR ./
 
-# copy csproj and restore as distinct layers
+# Copy csproj and restore as distinct layers
+WORKDIR ./
 COPY sfcc-cli-tools/*.csproj ./sfcc-cli-tools/
-WORKDIR ./sfcc-cli-tools
+WORKDIR ./sfcc-cli-tools/
+
 RUN dotnet restore
 
-# copy and publish app and libraries
-WORKDIR ./
-COPY sfcc-cli-tools/. ./sfcc-cli-tools/
-WORKDIR /sfcc-cli-tools
+# Copy everything else and build
+COPY . .
 RUN dotnet publish -c Release -o out
 
-
-FROM mcr.microsoft.com/dotnet/core/runtime:3.0-alpine AS runtime
+# Build runtime image
+FROM mcr.microsoft.com/dotnet/core/runtime:2.2
 WORKDIR /sfcc-cli-tools
 COPY --from=build /sfcc-cli-tools/out ./
-ENTRYPOINT ["dotnet", "dotnetapp.dll"]
+ENTRYPOINT ["dotnet", "sfccclitools.dll"]
