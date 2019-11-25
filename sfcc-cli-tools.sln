@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sfcc-cli-tools", "sfcc-cli-tools\sfcc-cli-tools.csproj", "{D017CFE3-0E72-4EF3-BE8D-6EBAE8E799CB}"
 EndProject
-Project("{9344BDBB-3E7F-41FC-A0DD-8665D75EE146}") = "sfcc-cli-tools-tests", "sfcc-cli-tools-tests\sfcc-cli-tools-tests.csproj", "{EDCA01CE-7F22-40ED-9628-90A0FB01F684}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sfcc-cli-tools-tests", "sfcc-cli-tools-tests\sfcc-cli-tools-tests.csproj", "{EDCA01CE-7F22-40ED-9628-90A0FB01F684}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{ADEAE982-5B47-4115-88CA-DB8081EAFF24}"
 	ProjectSection(SolutionItems) = preProject

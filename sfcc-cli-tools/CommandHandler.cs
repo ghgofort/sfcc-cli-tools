@@ -6,7 +6,24 @@ namespace sfcc_cli_tools
 {
     public class CommandHandler
     {
-        private Dictionary<string, ICommandClass> dictCommands = new Dictionary<string, ICommandClass>();
+        /// <summary>
+        /// This method is responsible for mapping of all of the command names
+        /// to the maatching command handler class. This is a quick and dirty
+        /// veraionthat should be replaced with a more elegant DI solution at
+        /// some point.
+        /// </summary>
+        /// <param name="commandName"></param>
+        /// <returns></returns>
+        private ICommandClass findCommand(String commandName)
+        {
+            // Handle all registered commands here.
+            if (commandName == "help")
+            {
+                return new Help();
+            }
+            return null;
+        }
+
 
         public CommandHandler(string[] args)
         {
@@ -17,18 +34,22 @@ namespace sfcc_cli_tools
             // Check for CLI arguments passed.
             if (args.Length != 0)
             {
-                // First arg is the command name.
                 strCommand = args[0];
+                Console.WriteLine("Passed Command: " + args[0]);
+
+                var cmdInstance = findCommand(strCommand);
 
                 if (args.Length > 1)
-                {
+                {    
                     // Loop through the command args & modifiers.
                     for (int x = 1; x < args.Length; x++)
                     {
+                        Console.WriteLine("Arg " + x + ": " + args[x]);
                         // Command arguments will not have a hyphen, modifiers &
                         // flags will.
                         if (args[x].IndexOf('-') == -1)
                         {
+                            Console.WriteLine("Command Arg: " + args[x]);
                             strCommand = args[x];
                         }
                         else
@@ -51,6 +72,7 @@ namespace sfcc_cli_tools
                     }
                 }
             }
+
             Console.WriteLine("Hello World! Args: " + strArgPrefix + " " + strArgValue);
         }
     }

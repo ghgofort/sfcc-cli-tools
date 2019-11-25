@@ -17,5 +17,9 @@
   <ItemGroup>
     <Folder Include="Interfaces\" />
     <Folder Include="commands\" />
+    <Folder Include="bin\Debug\" />
+    <Folder Include="bin\Debug\" />
+    <Folder Include="bin\" />
+    <Folder Include="obj\" />
   </ItemGroup>
 </Project>
