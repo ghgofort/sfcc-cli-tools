@@ -10,6 +10,7 @@ namespace sfcc_cli_tools.commands
 
         public Help() 
         {
+            Console.WriteLine("sftools --help: Gives information on the available commands and syntax used for sftools cli.");
         }
 
         public char[] getAllowedModifiers()
