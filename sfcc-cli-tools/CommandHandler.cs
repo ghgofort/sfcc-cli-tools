@@ -14,15 +14,11 @@ namespace sfcc_cli_tools
         /// </summary>
         /// <param name="commandName"></param>
         /// <returns></returns>
-        private ICommandClass findCommand(String commandName)
-        {
-            // Handle all registered commands here.
-            if (commandName == "help")
-            {
-                return new Help();
-            }
-            return null;
+        private ICommandClass FindCommand(String commandName) {
+            return cmdRegistry.GetCommandClass(commandName);
         }
+
+        private readonly CommandRegistry cmdRegistry = new CommandRegistry();
 
 
         public CommandHandler(string[] args)
@@ -37,7 +33,7 @@ namespace sfcc_cli_tools
                 strCommand = args[0];
                 Console.WriteLine("Passed Command: " + args[0]);
 
-                var cmdInstance = findCommand(strCommand);
+                var cmdInstance = FindCommand(strCommand);
 
                 if (args.Length > 1)
                 {    
