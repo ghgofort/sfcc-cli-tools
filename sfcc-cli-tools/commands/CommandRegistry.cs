@@ -27,7 +27,6 @@ namespace sfcc_cli_tools.commands
             {
                 case "sync":
                     return new Sync();
-                case "help":
                 default:
                     return new Help();
             }
