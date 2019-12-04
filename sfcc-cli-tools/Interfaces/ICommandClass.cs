@@ -1,8 +1,22 @@
 ﻿using System;
 namespace sfcc_cli_tools.Interfaces
 {
+    /// <summary>
+    ///     An interface that defines the common methods of all sfcc-cli-tools
+    ///     commands.
+    /// </summary>
     public interface ICommandClass
     {
-        string[] getDescription();
+        /// <summary>
+        ///     Prints the commands help information.
+        /// </summary>
+        /// <param name="optionName">
+        ///     The value entered by the user for the command option/
+        /// </param>
+        /// <returns></returns>
+        Boolean IsValidOption(string optionName);
+        Boolean ProcessOption(string optionName);
+        void Default();
+        void PrintHelp();
     }
 }

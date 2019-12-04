@@ -20,35 +20,45 @@ namespace sfcc_cli_tools.commands
             Console.WriteLine("    ");
         }
 
-        public char[] getAllowedModifiers()
+        /// <summary>
+        ///     Prints Help information for the command by calling PrintHelp.
+        ///     This method is invoked if the command is called without any
+        ///     options or arguments spedified.
+        /// </summary>
+        public void Default()
         {
-            throw new NotImplementedException();
+
         }
 
-        public string getCommandName()
+        /// <summary>
+        ///     Checks if the passed string is a valid identifier for one of the
+        ///     command options.
+        /// </summary>
+        /// <param name="optionName"></param>
+        /// <returns></returns>
+        public Boolean IsValidOption(string optionName)
         {
-            throw new NotImplementedException();
+            return false;
         }
 
-        public string getCommandShort()
+        /// <summary>
+        ///     Prints usage, option, and argument specification information for
+        ///     the command to the console for the user.
+        /// </summary>
+        /// <returns></returns>
+        public void PrintHelp()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("sftools imports: A tool for managing an ordered list of changes to system schema using SFCC standard import/export files in order to easily replicate all necessary SFCC setup on any SFCC instance.");
         }
 
-        public string getDescription()
+        /// <summary>
+        ///     TODO: Implement ProcessOption for Imports class.
+        /// </summary>
+        /// <param name="optionName"></param>
+        /// <returns></returns>
+        public bool ProcessOption(string optionName)
         {
-            string strDescription = "sftools imports: A tool for managing an ordered list of changes to system schema using SFCC standard import/export files in order to easily replicate all necessary SFCC setup on any SFCC instance.";
-            return strDescription;
-        }
-
-        public string getExample()
-        {
-            throw new NotImplementedException();
-        }
-
-        public string getSyntax()
-        {
-            throw new NotImplementedException();
+            return false;
         }
     }
 }
