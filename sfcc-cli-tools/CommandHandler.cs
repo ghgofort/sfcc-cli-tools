@@ -63,13 +63,13 @@ namespace sfcc_cli_tools
                     }
                 } else
                 {
-                    Console.Write(cmdInstance.GetHelp());
+                    cmdInstance.Default();
                 }
             } else
             {
                 // If no command was passed call the "help" command by default.
                 cmdInstance = FindCommand("help");
-                Console.Write(cmdInstance.GetHelp());
+                cmdInstance.PrintHelp();
             }
         }
     }

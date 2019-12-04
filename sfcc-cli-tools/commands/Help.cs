@@ -8,38 +8,40 @@ namespace sfcc_cli_tools.commands
         public static String commandShort = "-h";
         public static char[] allowedModifiers = new char['h'];
 
-        public Help() 
+        /// <summary>
+        ///     Prints the help instructions for general sfcc-cli-tools use to
+        ///     the users console.
+        /// </summary>
+        public void PrintHelp() 
         {
-            Console.WriteLine("Help called...");
+            Console.WriteLine("usage: sftools help or sftools -h");
         }
 
-        public char[] getAllowedModifiers()
+        /// <summary>
+        ///     ICommandClass interface method for checking if a specified
+        ///     option name exists for the command.
+        /// </summary>
+        /// <param name="optionName">The name passed by the user.</param>
+        /// <returns>Returns true if the option name exists</returns>
+        public bool IsValidOption(string optionName)
         {
-            return Help.allowedModifiers;
+            Boolean isValid = false;
+
+            return isValid;
         }
 
-        public string getCommandName()
+        /// <summary>
+        ///     ICommandClass interface method for invoking the default command
+        ///     execution when if options are passed. For most commands this
+        ///     calls the PrintHelp() function.
+        /// </summary>
+        public void Default()
         {
-            return Help.commandName;
+            PrintHelp();
         }
 
-        public string getCommandShort()
-        {
-            return Help.commandShort;
-        }
 
-        public string getDescription()
-        {
-            string strDescription = "sftools --help: Gives information on the available commands and syntax used for sftools cli.";
-            return strDescription;
-        }
-
-        public string getExample()
-        {
-            throw new NotImplementedException();
-        }
-
-        public string getSyntax()
+        public bool ProcessOption(string optionName)
         {
             throw new NotImplementedException();
         }

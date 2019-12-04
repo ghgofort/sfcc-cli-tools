@@ -15,17 +15,12 @@ namespace sfcc_cli_tools.commands
             Console.WriteLine("sync command called...");
         }
 
-        public char[] getAllowedModifiers()
+        public void Default()
         {
             throw new NotImplementedException();
         }
 
-        public string getCommandName()
-        {
-            return Sync.commandName;
-        }
-
-        public string getCommandShort()
+        public bool IsValidOption(string optionName)
         {
             throw new NotImplementedException();
         }
@@ -34,19 +29,13 @@ namespace sfcc_cli_tools.commands
         ///     Gets the command description text to print for the user.
         /// </summary>
         /// <returns>string</returns>
-        public string getDescription()
+        public void PrintHelp()
         {
-            string strDescription = "usage: ";
-            strDescription += "sftools sync: A tool for syncing files from the local file system to your Salesforce Commerce Cloud sandbox.";
-            return strDescription;
+            Console.WriteLine("usage: ");
+            Console.WriteLine("sftools sync: A tool for syncing files from the local file system to your Salesforce Commerce Cloud sandbox.");
         }
 
-        public string getExample()
-        {
-            throw new NotImplementedException();
-        }
-
-        public string getSyntax()
+        public bool ProcessOption(string optionName)
         {
             throw new NotImplementedException();
         }
