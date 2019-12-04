@@ -10,7 +10,7 @@ namespace sfcc_cli_tools.commands
 
         public Help() 
         {
-            Console.WriteLine("sftools --help: Gives information on the available commands and syntax used for sftools cli.");
+            Console.WriteLine("Help called...");
         }
 
         public char[] getAllowedModifiers()
@@ -30,7 +30,8 @@ namespace sfcc_cli_tools.commands
 
         public string getDescription()
         {
-            throw new NotImplementedException();
+            string strDescription = "sftools --help: Gives information on the available commands and syntax used for sftools cli.";
+            return strDescription;
         }
 
         public string getExample()
