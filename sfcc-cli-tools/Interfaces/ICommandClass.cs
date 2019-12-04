@@ -14,8 +14,8 @@ namespace sfcc_cli_tools.Interfaces
         ///     The value entered by the user for the command option/
         /// </param>
         /// <returns></returns>
-        Boolean IsValidOption(string optionName);
-        Boolean ProcessOption(string optionName);
+        bool IsValidOption(string optionName);
+        bool ProcessOption(string optionName);
         void Default();
         void PrintHelp();
     }
