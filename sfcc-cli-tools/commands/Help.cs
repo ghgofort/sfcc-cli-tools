@@ -43,7 +43,7 @@ namespace sfcc_cli_tools.commands
 
         public bool ProcessOption(string optionName)
         {
-            throw new NotImplementedException();
+            return false;
         }
     }
 }
