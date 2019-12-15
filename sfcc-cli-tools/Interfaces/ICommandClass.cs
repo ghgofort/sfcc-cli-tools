@@ -7,9 +7,6 @@ namespace sfcc_cli_tools.Interfaces
     /// </summary>
     public interface ICommandClass
     {
-        /// <summary>
-        ///     Processes the specified option with the passed argument values.
-        /// </summary>
         /// <param name="optionName"></param>
         /// <returns>
         ///     Returns a success flag indicating if the operation was
