@@ -38,6 +38,13 @@ namespace sfcc_cli_tools.commands
                 "/migrations",
                 "/impex"
             };
+
+            // Matching tracking file names.
+            string [] IMPEX_TRACKING_FILES =
+            {
+                "migrations.xml",
+                "impex.xml"
+            }
             string impexPath = "";
             if (Directory.Exists(relativePath)) {
                 // Loop through the allowed directory names, and check if any
