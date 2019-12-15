@@ -84,16 +84,31 @@ namespace sfcc_cli_tools.commands
         /// <returns>Returns a flag indicating the success./returns>
         public bool ProcessOption(string optionName, string[] args)
         {
+            bool success = false;
             switch(optionName)
             {
                 case "new":
-                    if (args.Length > 0 && args[0] != "-h")
-                    {
+                    if (args.Length > 0 && args[0] != "-h" && args[0] != "--help")
+                    {   
 
+                    }
+                    else
+                    {
+                        PrintHelp("new");
                     }
                     break;
                 case "run":
-                    /// TODO: Process run option of impex command.
+                    /// TODO: Process sftools impex run
+                    break;
+                case "set":
+                    if (args.Length > 0 && args[0] != "-h" && args[0] != "--help")
+                    {
+                        /// TODO: Process: sftools impex set
+                    }
+                    else
+                    {
+                        PrintHelp("set");
+                    }
                     break;
                 default:
                     break;
