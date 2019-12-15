@@ -8,14 +8,14 @@ namespace sfcc_cli_tools.Interfaces
     public interface ICommandClass
     {
         /// <summary>
-        ///     Prints the commands help information.
+        ///     Processes the specified option with the passed argument values.
         /// </summary>
-        /// <param name="optionName">
-        ///     The value entered by the user for the command option/
-        /// </param>
-        /// <returns></returns>
-        Boolean IsValidOption(string optionName);
-        Boolean ProcessOption(string optionName);
+        /// <param name="optionName"></param>
+        /// <returns>
+        ///     Returns a success flag indicating if the operation was
+        ///     successful or not.
+        /// </returns>
+        bool ProcessOption(string optionName, string[] arguments);
         void Default();
         void PrintHelp();
     }

@@ -62,17 +62,6 @@ namespace sfcc_cli_tools.commands
         }
 
         /// <summary>
-        ///     Checks if the passed string is a valid identifier for one of the
-        ///     command options.
-        /// </summary>
-        /// <param name="optionName"></param>
-        /// <returns></returns>
-        public bool IsValidOption(string optionName)
-        {
-            return false;
-        }
-
-        /// <summary>
         ///     Prints usage, option, and argument specification information for
         ///     the command to the console for the user.
         /// </summary>

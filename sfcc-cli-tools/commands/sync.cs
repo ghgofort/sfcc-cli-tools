@@ -20,11 +20,6 @@ namespace sfcc_cli_tools.commands
             throw new NotImplementedException();
         }
 
-        public bool IsValidOption(string optionName)
-        {
-            throw new NotImplementedException();
-        }
-
         /// <summary>
         ///     Gets the command description text to print for the user.
         /// </summary>
@@ -35,9 +30,31 @@ namespace sfcc_cli_tools.commands
             Console.WriteLine("sftools sync: A tool for syncing files from the local file system to your Salesforce Commerce Cloud sandbox.");
         }
 
-        public bool ProcessOption(string optionName)
+        public bool ProcessOption(string optionName, string[] args)
         {
-            throw new NotImplementedException();
+            bool processSuccess = true;
+            switch (optionName)
+            {
+                case "cartridge":
+                    if (args.Length > 0)
+                    {
+                        processSuccess = SyncCartridge(args[0]);
+                    } else
+                    {
+                        processSuccess = false;
+                    }
+                    break;
+                default:
+                    processSuccess = false;
+                    break;
+            }
+
+            return processSuccess;
+        }
+
+        private bool SyncCartridge(string path)
+        {
+            return false;
         }
     }
 }
