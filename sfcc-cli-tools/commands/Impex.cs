@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using sfcc_cli_tools.Interfaces;
 
 namespace sfcc_cli_tools.commands
@@ -14,13 +15,9 @@ namespace sfcc_cli_tools.commands
         ///     Creates the directory structure in the local file system for a
         ///     new set of import/export files to be applied as a set.
         /// </summary>
-        /// <param name="name">
-        ///     The name of the new record, also used to name the subdirectory
-        ///     the impex records are created in.
-        /// </param>
         /// <param name="options"></param>
         /// <returns></returns>
-        private bool CreateImpexRecord(string name, string[] options)
+        private bool CreateImpexRecord(string[] options)
         {
             return false;
         }
@@ -33,9 +30,36 @@ namespace sfcc_cli_tools.commands
         /// </summary>
         /// <param name="relativePath"></param>
         /// <returns></returns>
-        private bool FindImpexDirectory(string relativePath)
+        private string FindImpexDirectory(string relativePath)
         {
-            return false;
+            // Directory names to look for to find the impex register.
+            string[] IMPEX_DIR_NAMES =
+            {
+                "/migrations",
+                "/impex"
+            };
+
+            // Matching tracking file names.
+            string [] IMPEX_TRACKING_FILES =
+            {
+                "migrations.xml",
+                "impex.xml"
+            }
+            string impexPath = "";
+            if (Directory.Exists(relativePath)) {
+                // Loop through the allowed directory names, and check if any
+                // exist in the current checkDirectory.
+                for (int i = 0; i < IMPEX_DIR_NAMES.Length; i++)
+                {
+                    string checkPath = relativePath + IMPEX_DIR_NAMES[i];
+                    if (Directory.Exists(checkPath))
+                    {
+                        impexPath = checkPath;
+                        /// TODO: START HERE -- Find the migration tracking file.
+                    }
+                }
+            }
+            return impexPath;
         }
 
         /// <summary>
@@ -84,36 +108,38 @@ namespace sfcc_cli_tools.commands
         /// <returns>Returns a flag indicating the success./returns>
         public bool ProcessOption(string optionName, string[] args)
         {
+            // Get the current directory.
+            string path = Directory.GetCurrentDirectory();
             bool success = false;
-            switch(optionName)
-            {
-                case "new":
-                    if (args.Length > 0 && args[0] != "-h" && args[0] != "--help")
-                    {   
+            if (args.Length > 0 && args[0] != "-h" && args[0] != "--help")
+            {   
 
-                    }
-                    else
-                    {
-                        PrintHelp("new");
-                    }
-                    break;
-                case "run":
-                    /// TODO: Process sftools impex run
-                    break;
-                case "set":
-                    if (args.Length > 0 && args[0] != "-h" && args[0] != "--help")
-                    {
-                        /// TODO: Process: sftools impex set
-                    }
-                    else
-                    {
-                        PrintHelp("set");
-                    }
-                    break;
-                default:
-                    break;
+                PrintHelp("new");
+                switch(optionName)
+                {
+                    case "new":
+                        // --source OR -s :: source directory of new IMPEX record.
+                        if (Array.IndexOf(args, "--source") > -1 || Array.IndexOf(args, "-s") > -1)
+                        {
+
+                        }
+                        success = CreateImpexRecord(args);
+                        break;
+                    case "run":
+                        /// TODO: Process sftools impex run
+                        break;
+                    case "set":
+                        
+                        break;
+                    default:
+                        break;
+                }
             }
-            return false;
+            else
+            {
+                PrintHelp(optionName);
+            }
+            return success;
         }
 
         public void PrintHelp()
