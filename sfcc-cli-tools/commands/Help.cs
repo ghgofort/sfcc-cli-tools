@@ -17,6 +17,14 @@ namespace sfcc_cli_tools.commands
             Console.WriteLine("usage: sftools help or sftools -h");
         }
 
+        public void PrintHelp(string subCommand)
+        {
+            if (subCommand == "-h" || subCommand == "--help")
+            {
+                PrintHelp();
+            }
+        }
+
         /// <summary>
         ///     ICommandClass interface method for invoking the default command
         ///     execution when if options are passed. For most commands this
@@ -28,7 +36,7 @@ namespace sfcc_cli_tools.commands
         }
 
 
-        public bool ProcessOption(string optionName)
+        public bool ProcessOption(string optionName, string[] arguments)
         {
             return false;
         }

@@ -43,12 +43,7 @@ namespace sfcc_cli_tools.commands
         /// </summary>
         public Impex()
         {
-            Console.WriteLine();
-            Console.WriteLine("    -- command syntax:");
-            Console.WriteLine("      -- sftools imports [options] [[--] <additional arguments>]");
-            Console.WriteLine("");
-            Console.WriteLine("    -- options:");
-            Console.WriteLine("    ");
+            PrintHelp();
         }
 
         /// <summary>
@@ -58,31 +53,44 @@ namespace sfcc_cli_tools.commands
         /// </summary>
         public void Default()
         {
-            PrintHelp();
+            PrintHelp("-h");
         }
 
         /// <summary>
         ///     Prints usage, option, and argument specification information for
         ///     the command to the console for the user.
         /// </summary>
+        /// <param name="commandName">The name of the SFCC command.</param>
         /// <returns></returns>
-        public void PrintHelp()
+        public void PrintHelp(string commandName)
         {
-            Console.WriteLine("sftools impex:");
-            Console.WriteLine("  -- Description: A tool for managing an ordered list of changes to system schema using SFCC standard import/export files in order to easily replicate all necessary SFCC setup on any SFCC instance."); 
+            string strCommandLower = commandName.ToLower();
+            if (strCommandLower == "-h" || strCommandLower == "--help" || strCommandLower == "")
+            {
+                PrintHelp();
+            }
+            else if (strCommandLower == "new")
+            {
+
+            }
+            
         }
 
         /// <summary>
         ///     TODO: Implement ProcessOption for Imports class.
         /// </summary>
         /// <param name="optionName"></param>
+        /// <param name="args">An array of arguments passed for the sync CLI command execution.</param>
         /// <returns>Returns a flag indicating the success./returns>
-        public bool ProcessOption(string optionName)
+        public bool ProcessOption(string optionName, string[] args)
         {
             switch(optionName)
             {
                 case "new":
-                    /// TODO: Process new option of impex command.
+                    if (args.Length > 0 && args[0] != "-h")
+                    {
+
+                    }
                     break;
                 case "run":
                     /// TODO: Process run option of impex command.
@@ -91,6 +99,17 @@ namespace sfcc_cli_tools.commands
                     break;
             }
             return false;
+        }
+
+        public void PrintHelp()
+        {
+            Console.WriteLine("Usage: sftools impex [options] [[--] <additional arguments>]");
+            Console.WriteLine("");
+            Console.WriteLine("    -- options:");
+            Console.WriteLine("        - new:    ");
+            Console.WriteLine("        - run:    ");
+            Console.WriteLine("        - meta:    ");
+            Console.WriteLine("        - type:    ");
         }
     }
 }
