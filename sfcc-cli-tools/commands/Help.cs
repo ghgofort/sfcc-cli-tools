@@ -18,19 +18,6 @@ namespace sfcc_cli_tools.commands
         }
 
         /// <summary>
-        ///     ICommandClass interface method for checking if a specified
-        ///     option name exists for the command.
-        /// </summary>
-        /// <param name="optionName">The name passed by the user.</param>
-        /// <returns>Returns true if the option name exists</returns>
-        public bool IsValidOption(string optionName)
-        {
-            Boolean isValid = false;
-
-            return isValid;
-        }
-
-        /// <summary>
         ///     ICommandClass interface method for invoking the default command
         ///     execution when if options are passed. For most commands this
         ///     calls the PrintHelp() function.
@@ -43,7 +30,7 @@ namespace sfcc_cli_tools.commands
 
         public bool ProcessOption(string optionName)
         {
-            throw new NotImplementedException();
+            return false;
         }
     }
 }
